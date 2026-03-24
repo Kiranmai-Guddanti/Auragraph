@@ -31,6 +31,8 @@ backend/MANIFEST
 
 # Database files
 *.db
+*.db-shm
+*.db-wal
 *.sqlite
 *.sqlite3
 backend/notebooks.db
