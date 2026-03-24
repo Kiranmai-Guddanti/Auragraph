@@ -1,0 +1,85 @@
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Backend
+backend/venv/
+backend/__pycache__/
+backend/*.py[cod]
+backend/*$py.class
+backend/*.so
+backend/.Python
+backend/build/
+backend/develop-eggs/
+backend/dist/
+backend/downloads/
+backend/eggs/
+backend/.eggs/
+backend/lib/
+backend/lib64/
+backend/parts/
+backend/sdist/
+backend/var/
+backend/wheels/
+backend/pip-wheel-metadata/
+backend/share/python-wheels/
+backend/*.egg-info/
+backend/.installed.cfg
+backend/*.egg
+backend/MANIFEST
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+backend/notebooks.db
+backend/app.db
+
+# Storage directories (keep structure, exclude data)
+backend/behaviour_store/*
+backend/knowledge_store/*
+backend/image_store/*
+!backend/behaviour_store/.gitkeep
+!backend/knowledge_store/.gitkeep
+!backend/image_store/.gitkeep
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.env*
+*.sublime-workspace
+
+# Frontend
+frontend/node_modules/
+frontend/.vite/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+frontend/coverage/
+
+# Testing
+frontend/.playwright/
+frontend/test-results/
+frontend/playwright-report/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Misc
+.cache/
+.turbo/
