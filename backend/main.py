@@ -92,10 +92,9 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-_CORS_ORIGINS = [o.strip() for o in os.environ.get(
-    "CORS_ORIGINS",
-    "http://localhost:5173,http://127.0.0.1:5173,http://localhost:5174,http://127.0.0.1:5174",
-).split(",") if o.strip()]
+_CORS_ORIGINS = [
+    "https://auragraphai.vercel.app"
+]
 
 app.add_middleware(
     CORSMiddleware,
