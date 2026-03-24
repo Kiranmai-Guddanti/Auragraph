@@ -3,6 +3,7 @@ services:
     name: auragraph-backend
     runtime: docker
     dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
     envVars:
       - key: AZURE_OPENAI_ENDPOINT
         sync: false
@@ -54,11 +55,14 @@ services:
         value: "200"
       - key: LLM_CONCURRENCY
         value: "3"
+      - key: CORS_ORIGINS
+        value: "https://auragraph-frontend.onrender.com"
 
   - type: web
     name: auragraph-frontend
     runtime: docker
     dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend
     envVars:
       - key: VITE_API_URL
         sync: false
