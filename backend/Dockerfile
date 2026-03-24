@@ -7,10 +7,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libpoppler-cpp-dev poppler-utils \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt .
+COPY backend/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY backend/ .
 
 # Create runtime directories (not committed to git)
 RUN mkdir -p knowledge_store
