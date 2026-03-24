@@ -1,0 +1,66 @@
+services:
+  - type: web
+    name: auragraph-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    envVars:
+      - key: AZURE_OPENAI_ENDPOINT
+        sync: false
+      - key: AZURE_OPENAI_API_KEY
+        sync: false
+      - key: AZURE_OPENAI_DEPLOYMENT
+        value: gpt-4o
+      - key: AZURE_OPENAI_API_VERSION
+        value: 2024-10-21
+      - key: AZURE_EMBEDDING_DEPLOYMENT
+        sync: false
+      - key: AZURE_VISION_ENDPOINT
+        sync: false
+      - key: AZURE_VISION_KEY
+        sync: false
+      - key: AZURE_CONTENT_SAFETY_ENDPOINT
+        sync: false
+      - key: AZURE_CONTENT_SAFETY_KEY
+        sync: false
+      - key: AZURE_SEARCH_ENDPOINT
+        sync: false
+      - key: AZURE_SEARCH_KEY
+        sync: false
+      - key: AZURE_SEARCH_INDEX
+        value: auragraph-chunks
+      - key: COSMOS_DB_URL
+        sync: false
+      - key: COSMOS_DB_KEY
+        sync: false
+      - key: COSMOS_DB_DATABASE
+        value: auragraph
+      - key: COSMOS_DB_CONTAINER
+        value: mastery
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: GROQ_VISION_MODEL
+        value: meta-llama/llama-4-scout-17b-16e-instruct
+      - key: DEMO_ENABLED
+        value: "false"
+      - key: TOKEN_PEPPER
+        sync: false
+      - key: MAX_TOTAL_UPLOAD_MB
+        value: "500"
+      - key: LLM_HOURLY_LIMIT
+        value: "40"
+      - key: LLM_DAILY_LIMIT
+        value: "200"
+      - key: LLM_CONCURRENCY
+        value: "3"
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 8000
+    healthCheckPath: /health
+
+  - type: web
+    name: auragraph-frontend
+    runtime: docker
+    dockerfilePath: ./frontend/Dockerfile
+    envVars:
+      - key: VITE_API_URL
+        sync: false
