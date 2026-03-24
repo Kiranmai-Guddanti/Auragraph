@@ -54,8 +54,6 @@ services:
         value: "200"
       - key: LLM_CONCURRENCY
         value: "3"
-    startCommand: uvicorn main:app --host 0.0.0.0 --port 8000
-    healthCheckPath: /health
 
   - type: web
     name: auragraph-frontend
